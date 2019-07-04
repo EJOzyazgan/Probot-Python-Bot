@@ -9,4 +9,4 @@ app = Flask(__name__)
 @app.route("/bet", methods=['POST'])
 def get_bot():
 
-    return str(get_bet(request.json))
+    return '0'  # str(get_bet(request.json))
