@@ -1,7 +1,7 @@
 from flask import Flask, request
 
-# PLAYERS
-from my_bot import get_bet
+
+from .my_bot import get_bet
 
 app = Flask(__name__)
 
