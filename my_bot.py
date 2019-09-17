@@ -15,9 +15,42 @@ def get_bet(game_state):
     p = gs['players']
     me = p[gs['me']]
 
-    if me['cards'][0]['rank'] == me['cards'][1]['rank']:
-        return gs['minimumRaiseAmount'] * 2
-    elif me['chipsBet'] > 0:
-        return gs['callAmount']
-    return 0
+    rank = 0
 
+    if me['cards'][0]['rank'] == '8':
+        rank += 8
+    elif me['cards'][0]['rank'] == '9':
+        rank += 9
+    elif me['cards'][0]['rank'] == '10':
+        rank += 10
+    elif me['cards'][0]['rank'] == 'J':
+        rank += 11
+    elif me['cards'][0]['rank'] == 'Q':
+        rank += 12
+    elif me['cards'][0]['rank'] == 'K':
+        rank += 13
+    elif me['cards'][0]['rank'] == 'A':
+        rank += 14
+
+    if me['cards'][1]['rank'] == '8':
+        rank += 8
+    elif me['cards'][1]['rank'] == '9':
+        rank += 9
+    elif me['cards'][1]['rank'] == '10':
+        rank += 10
+    elif me['cards'][1]['rank'] == 'J':
+        rank += 11
+    elif me['cards'][1]['rank'] == 'Q':
+        rank += 12
+    elif me['cards'][11]['rank'] == 'K':
+        rank += 13
+    elif me['cards'][1]['rank'] == 'A':
+        rank += 14
+
+    if rank >= 24 and me['chips'] >= gs['minimumRaiseAmount'] * 2:
+        return gs['minimumRaiseAmount'] * 1.5
+    elif rank >= 20 and me['chips'] >= gs['minimumRaiseAmount'] * 1.5:
+        return gs['minimumRaiseAmount'] * 1.5
+    elif rank >= 24 and me['chips'] >= gs['minimumRaiseAmount']:
+        return gs['minimumRaiseAmount']
+    return gs['callAmount']
