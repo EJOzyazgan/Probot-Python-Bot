@@ -1,6 +1,5 @@
 from flask import Flask, request
 
-
 from .my_bot import get_bet
 
 app = Flask(__name__)
