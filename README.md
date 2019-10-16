@@ -1,9 +1,10 @@
-# Probot-Javascript-Bot
-Example Javascript bot for Probot Playground
+# Probot-Python-Bot
+Example Python bot for Probot Playground
 
-This is a very simple javascript bot running with a Node server.
+This is a very simple python bot running with a Flask server.
 
 It is highly recomended that you update the bot logic.
 
-Before running localy the command `npm i` will need to be run.
-The server can be started locally with `npm start`.
+Needed libraries to run locally are Flask and json
+
+The Flask server may be run localy using `flask run`
