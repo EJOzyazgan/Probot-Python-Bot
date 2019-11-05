@@ -44,15 +44,13 @@ def bet(game_state):
     elif me['cards'][1]['rank'] == 'A':
         rank += 14
 
-    myBet = 0
+    myBet = gs['minimumRaiseAmount']
     shouldLeave = False
 
     if rank >= 24 and me['chips'] >= gs['minimumRaiseAmount'] * 2:
         myBet = gs['minimumRaiseAmount'] * 2
     elif rank >= 20 and me['chips'] >= gs['minimumRaiseAmount'] * 1.5:
         myBet = gs['minimumRaiseAmount'] * 1.5
-    elif rank >= 16 and me['chips'] >= gs['minimumRaiseAmount']:
-        myBet = gs['minimumRaiseAmount']
 
     if me['chips'] >= me['buyIn'] * 1.5:
         shouldLeave = True
